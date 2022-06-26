@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdlib.h>
+//this programs helps you maintain the the score of every student in respective CLA's and to get an aggregated 
+//grade for one .
+// rollnumber of students are considered around our PPS practical class and hence start from 863 
+struct PPS{
+    float CLAP1,CLAT1,CLAP2,CLAT2,CLAP3,CLAT3,CLAT4,CLAP4;
+};
+int main(){
+    struct PPS *p;
+    int n,i;int rollnumber;
+    printf("enter the number of students ");
+    scanf("%d",&n);
+    p=(struct PPS*)malloc(n*sizeof(struct PPS));
+    for (i=0;i<n;i++){
+        printf("entering marks for roll no %d\n",i+863);
+        printf("enter the marks of roll no %d for CLAP1 ",i+863);
+        scanf("%f",&(p+i)->CLAP1);//maximum marks for CLAP1 were 5
+        printf("enter the marks of roll no %d for CLAT1 ",i+863);
+        scanf("%f",&(p+i)->CLAT1);//maximum marks for CLAT1 were 7.5
+        printf("enter the marks of roll no %d for CLAP2 ",i+863);
+        scanf("%f",&(p+i)->CLAP2);//maximum marks for CLAP2 were 7.5
+        printf("enter the marks of roll no %d for CLAT2 ",i+863);
+        scanf("%f",&(p+i)->CLAT2);//maximum marks for CLAT2 were 7.5
+        printf("enter the marks of roll no %d for CLAP3 ",i+863);
+        scanf("%f",&(p+i)->CLAP3);//maximum marks for CLAP3 were 7.5
+        printf("enter the marks of roll no %d for CLAT3 ",i+863);
+        scanf("%f",&(p+i)->CLAT3);//maximum marks for CLAT3 were 7.5
+        printf("enter the marks of roll no %d for CLAP4 ",i+863);
+        scanf("%f",&(p+i)->CLAP4);//maximum marks for CLAP4 were 5
+        printf("enter the marks of roll no %d for CLAT4 ",i+863);
+        scanf("%f",&(p+i)->CLAT4);//maximum marks for CLAT4 were 5
+    }
+    printf("marks of all students are stored in the data\n");
+    for(i=0;i<n;i++){
+    printf("to view marks and respective grades , enter the roll number(863 and onwards); to exit press 0 ");
+     scanf("%d",&rollnumber);
+    if((rollnumber!=0)){
+    int c;
+    c=rollnumber-863;
+        printf("CLAP1 marks of %d are %.2f\n",rollnumber,(p+c)->CLAP1);
+        printf("CLAT1 marks of %d are %.2f\n",rollnumber,(p+c)->CLAT1);
+        printf("CLAP2 marks of %d are %.2f\n",rollnumber,(p+c)->CLAP2);
+        printf("CLAT2 marks of %d are %.2f\n",rollnumber,(p+c)->CLAT2);
+        printf("CLAP3 marks of %d are %.2f\n",rollnumber,(p+c)->CLAP3);
+        printf("CLAT3 marks of %d are %.2f\n",rollnumber,(p+c)->CLAT3);
+        printf("CLAP4 marks of %d are %.2f\n",rollnumber,(p+c)->CLAP4);
+        printf("CLAT4 marks of %d are %.2f\n",rollnumber,(p+c)->CLAT4);
+        float s,g;
+    s=(p+c)->CLAP1+(p+c)->CLAT1+(p+c)->CLAP2+(p+c)->CLAT2+(p+c)->CLAP3+(p+c)->CLAT3+(p+c)->CLAP4+(p+c)->CLAT4;
+    g=(s/50)*100;
+    if(g>=90)
+    printf("grade is O\n");
+    else if ((g<90)&&(g>=85))
+    printf("grade is A+\n");
+    else if((g<85)&&(g>=80))
+    printf("grade is A\n");
+    else if((g<80)&&(g>=75))
+    printf("grade is B+\n");
+    else if((g<75)&&(g>=70))
+    printf("grade is B\n");
+    else if(g<70)
+    printf("grade is C\n");
+}
+}
+}
